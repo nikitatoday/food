@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const modalTimerID = setTimeout(openModal, 10000);
+    const modalTimerID = setTimeout(openModal, 30000);
 
     function showModalByScroll() {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
@@ -94,14 +94,14 @@ window.addEventListener('DOMContentLoaded', () => {
         const t = Date.parse(endtime) - Date.parse(new Date()),
               days = Math.floor(t / (1000 * 60 *60 *24)),
               hours = Math.floor((t / (1000 * 60 *60) % 24)),
-              minuts = Math.floor((t / 1000 / 60) % 60),
+              minutes = Math.floor((t / 1000 / 60) % 60),
               seconds = Math.floor((t / 1000) % 60);
 
         return {
             'total': t,
             'days': days,
             'hours': hours,
-            'minuts': minuts,
+            'minutes': minutes,
             'seconds': seconds
         };
     }
@@ -118,7 +118,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const timer = document.querySelector(selector),
               days = timer.querySelector('#days'),
               hours = timer.querySelector('#hours'),
-              minuts = timer.querySelector('#minuts'),
+              minutes = timer.querySelector('#minutes'),
               seconds = timer.querySelector('#seconds'),
               timeInterval = setInterval(updateClock, 1000);
         
@@ -129,7 +129,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             days.innerHTML = getZero(t.days);
             hours.innerHTML = getZero(t.hours);
-            minuts.innerHTML = getZero(t.minuts);
+            minutes.innerHTML = getZero(t.minutes);
             seconds.innerHTML = getZero(t.seconds);
 
             if (t.total <= 0) {
